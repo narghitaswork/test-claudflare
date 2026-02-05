@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Hernia Fix București | Operație Hernie Laparoscopică | Dr. George Jinescu</title>
+    <meta name="description" content="Tratament modern laparoscopic pentru hernie inghinală, ombilicală, femurală, epigastrică și eventrație. Dr. George Jinescu - Medic Primar Chirurgie Generală București. Recuperare rapidă.">
+    <meta name="keywords" content="hernie inghinala bucuresti, operatie hernie laparoscopica, hernie ombilicala, eventratie, hernie femurala, chirurg hernie, dr george jinescu">
+    
+    <link rel="canonical" href="https://www.drjinescu.ro/hernia-fix">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --white: #FEFEFE;
+            --cream: #F5F1EB;
+            --beige: #E8E0D5;
+            --beige-dark: #D4C9BA;
+            --charcoal: #2C2C2C;
+            --charcoal-light: #4A4A4A;
+            --gold-green: #8B9A6D;
+            --gold-green-light: #A3B085;
+            --terracotta: #C4775A;
+            --terracotta-light: #D4917A;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            background-color: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(254, 254, 254, 0.97);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--beige);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: var(--charcoal);
+        }
+
+        .logo span { color: var(--gold-green); }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--charcoal-light);
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--gold-green); }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .menu-toggle span {
+            width: 24px;
+            height: 1px;
+            background: var(--charcoal);
+        }
+
+        /* Page Hero */
+        .page-hero {
+            padding: 140px 2rem 80px;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--beige) 100%);
+            text-align: center;
+        }
+
+        .breadcrumb {
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--charcoal-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .breadcrumb a { color: var(--gold-green); }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        .page-hero h1 {
+            font-size: 3rem;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+        }
+
+        .page-hero h1 span {
+            color: var(--gold-green);
+            font-style: italic;
+        }
+
+        .page-hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--charcoal-light);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-features {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--charcoal);
+        }
+
+        .hero-feature svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--gold-green);
+            stroke-width: 1.5;
+            fill: none;
+        }
+
+        /* Content */
+        .content-section {
+            padding: 80px 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .intro-box {
+            background: var(--white);
+            padding: 2.5rem;
+            border-left: 3px solid var(--gold-green);
+            margin-bottom: 3rem;
+        }
+
+        .intro-box p {
+            color: var(--charcoal-light);
+            font-size: 1.05rem;
+        }
+
+        /* Hernia Cards */
+        .hernia-card {
+            background: var(--white);
+            margin-bottom: 2rem;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            overflow: hidden;
+        }
+
+        .hernia-card-header {
+            background: var(--charcoal);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hernia-card-header h2 {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hernia-card-header .tag {
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold-green-light);
+        }
+
+        .hernia-card-body {
+            padding: 2rem;
+        }
+
+        .hernia-card-body h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--terracotta);
+            margin-bottom: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .hernia-card-body h3:first-child {
+            margin-top: 0;
+        }
+
+        .hernia-card-body p {
+            color: var(--charcoal-light);
+            font-size: 0.95rem;
+        }
+
+        .hernia-card-body ul {
+            list-style: none;
+            margin: 0.5rem 0;
+        }
+
+        .hernia-card-body ul li {
+            padding: 0.4rem 0 0.4rem 1.25rem;
+            position: relative;
+            color: var(--charcoal-light);
+            font-size: 0.9rem;
+        }
+
+        .hernia-card-body ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5px;
+            height: 5px;
+            background: var(--gold-green);
+            border-radius: 50%;
+        }
+
+        .procedure-note {
+            background: var(--cream);
+            padding: 1rem 1.25rem;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: var(--charcoal);
+            border-left: 2px solid var(--gold-green);
+        }
+
+        /* Advantages Section */
+        .advantages-section {
+            background: var(--charcoal);
+            padding: 80px 2rem;
+        }
+
+        .advantages-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .advantages-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .advantages-header .label {
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold-green-light);
+            margin-bottom: 0.75rem;
+        }
+
+        .advantages-header h2 {
+            font-size: 2.2rem;
+            color: var(--white);
+        }
+
+        .advantages-header h2 span {
+            color: var(--terracotta-light);
+            font-style: italic;
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .advantage-card {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s;
+        }
+
+        .advantage-card:hover {
+            border-color: var(--gold-green);
+            background: rgba(255,255,255,0.02);
+        }
+
+        .advantage-card svg {
+            width: 40px;
+            height: 40px;
+            stroke: var(--gold-green-light);
+            stroke-width: 1;
+            fill: none;
+            margin-bottom: 1rem;
+        }
+
+        .advantage-card h3 {
+            font-size: 1.1rem;
+            color: var(--cream);
+            margin-bottom: 0.5rem;
+        }
+
+        .advantage-card p {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 2rem;
+            background: var(--cream);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: var(--charcoal-light);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 1.75rem;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--charcoal);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-green);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--charcoal);
+            color: var(--charcoal);
+        }
+
+        .btn-outline:hover {
+            background: var(--charcoal);
+            color: var(--white);
+        }
+
+        /* Floating Buttons */
+        .floating-contact {
+            position: fixed;
+            right: 1.5rem;
+            bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            z-index: 999;
+        }
+
+        .floating-btn {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(44,44,44,0.2);
+            transition: transform 0.3s;
+        }
+
+        .floating-btn:hover { transform: scale(1.1); }
+
+        .floating-btn svg {
+            width: 22px;
+            height: 22px;
+            stroke-width: 1.5;
+        }
+
+        .floating-btn.phone {
+            background: var(--charcoal);
+        }
+
+        .floating-btn.phone svg {
+            stroke: var(--white);
+            fill: none;
+        }
+
+        .floating-btn.phone:hover {
+            background: var(--gold-green);
+        }
+
+        .floating-btn.whatsapp {
+            background: #25D366;
+        }
+
+        .floating-btn.whatsapp svg {
+            stroke: var(--white);
+            fill: var(--white);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            padding: 2.5rem 2rem;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: var(--cream);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-logo span { color: var(--gold-green); }
+
+        footer p {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0; right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 1.5rem 2rem;
+                gap: 1rem;
+            }
+
+            .nav-links.active { display: flex; }
+            .menu-toggle { display: flex; }
+
+            .page-hero { padding: 120px 1.5rem 60px; }
+            .page-hero h1 { font-size: 2.2rem; }
+
+            .content-section { padding: 60px 1.5rem; }
+
+            .hernia-card {
+                grid-template-columns: 1fr;
+            }
+
+            .advantages-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .advantages-section, .cta-section {
+                padding: 60px 1.5rem;
+            }
+
+            .hero-features { gap: 1rem; }
+
+            .cta-buttons { flex-direction: column; align-items: center; }
+
+            .floating-contact { right: 1rem; bottom: 1rem; }
+            .floating-btn { width: 46px; height: 46px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Dr. George <span>Jinescu</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#despre">Despre</a></li>
+                <li><a href="index.html#servicii">Servicii</a></li>
+                <li><a href="index.html#media">Media</a></li>
+                <li><a href="index.html#programare">Programare</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Floating Buttons -->
+    <div class="floating-contact">
+        <a href="tel:+40XXXXXXXXX" class="floating-btn phone">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </a>
+        <a href="https://wa.me/40XXXXXXXXX" class="floating-btn whatsapp" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </a>
+    </div>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <nav class="breadcrumb">
+            <a href="index.html">Acasă</a> / <a href="index.html#servicii">Servicii</a> / Hernia Fix
+        </nav>
+        <h1>Hernia <span>Fix</span></h1>
+        <p class="page-hero-subtitle">Tratament chirurgical modern și minim invaziv pentru toate tipurile de hernii abdominale, realizat prin tehnică laparoscopică cu plase de ultimă generație.</p>
+        <div class="hero-features">
+            <div class="hero-feature">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>Intervenție 30-60 min</span>
+            </div>
+            <div class="hero-feature">
+                <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Recuperare rapidă</span>
+            </div>
+            <div class="hero-feature">
+                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span>Tehnică minim invazivă</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <section class="content-section">
+        <div class="intro-box">
+            <p>Hernia reprezintă o slăbire a peretelui muscular care permite țesuturilor sau organelor interne să iasă prin acest defect. Netratată, hernia poate duce la complicații grave precum incarcerarea sau strangularea. Dr. George Jinescu oferă tratament chirurgical modern, adaptat fiecărui tip de hernie, utilizând tehnici laparoscopice și plase de înaltă calitate.</p>
+        </div>
+
+        <!-- Hernia Inghinală -->
+        <article class="hernia-card">
+            <div class="hernia-card-header">
+                <h2>Hernia Inghinală</h2>
+                <span class="tag">Plasă tridimensională 3D</span>
+            </div>
+            <div class="hernia-card-body">
+                <h3>Ce este hernia inghinală?</h3>
+                <p>Este o slăbire a peretelui muscular în regiunea inghinală care duce la apariția unei umflături în partea inferioară a abdomenului. Herniile inghinale sunt mult mai frecvente la bărbați decât la femei.</p>
+                
+                <h3>Simptome frecvente</h3>
+                <ul>
+                    <li>Umflătură vizibilă în zona inghinală care dispare când stați culcat</li>
+                    <li>Discomfort continuu care se accentuează pe parcursul zilei</li>
+                    <li>Durere la tuse, strănut sau efort fizic</li>
+                    <li>Ameliorare a simptomelor în timpul nopții</li>
+                </ul>
+
+                <div class="procedure-note">
+                    <strong>Procedură:</strong> Intervenția se realizează laparoscopic prin 3 orificii (două de 5mm și unul de 10mm) cu montarea unei plase 3D pentru întărirea peretelui.
+                </div>
+            </div>
+        </article>
+
+        <!-- Hernia Ombilicală -->
+        <article class="hernia-card">
+            <div class="hernia-card-header">
+                <h2>Hernia Ombilicală</h2>
+                <span class="tag">Plasă Ventralight</span>
+            </div>
+            <div class="hernia-card-body">
+                <h3>Ce este hernia ombilicală?</h3>
+                <p>O hernie ombilicală este o proeminență a buricului ca urmare a unei slăbiri musculo-aponevrotice la acest nivel. Herniile ombilicale pot apărea la orice vârstă și sunt frecvente la persoanele cu suprapondere sau la femeile după sarcină.</p>
+                
+                <h3>Caracteristici</h3>
+                <ul>
+                    <li>Defectul poate fi mic sau mare</li>
+                    <li>Sacul herniar nu este întotdeauna reductibil</li>
+                    <li>Herniile ombilicale se pot strangula</li>
+                    <li>Risc de complicații dacă sunt ignorate</li>
+                </ul>
+
+                <div class="procedure-note">
+                    <strong>Procedură:</strong> Se utilizează plasa Ventralight pentru întărirea peretelui, fie prin abord laparoscopic, fie clasic, în funcție de dimensiunea defectului.
+                </div>
+            </div>
+        </article>
+
+        <!-- Hernia Epigastrică -->
+        <article class="hernia-card">
+            <div class="hernia-card-header">
+                <h2>Hernia Epigastrică</h2>
+                <span class="tag">Plasă SoftMesh</span>
+            </div>
+            <div class="hernia-card-body">
+                <h3>Ce este hernia epigastrică?</h3>
+                <p>Hernia epigastrică este o umflătură care apare între stern și buric pe mijlocul peretelui abdominal anterior, între mușchii drepți abdominali. Se produce printr-un orificiu mic, sacul de hernie conținând cel mai adesea grăsime.</p>
+                
+                <h3>Particularități</h3>
+                <ul>
+                    <li>Diferă de alte tipuri de hernii - nu dispare când stați culcat</li>
+                    <li>Apare pe linia mediană a abdomenului</li>
+                    <li>Conține de obicei țesut adipos</li>
+                    <li>Reparare relativ simplă în majoritatea cazurilor</li>
+                </ul>
+
+                <div class="procedure-note">
+                    <strong>Procedură:</strong> Repararea necesită fire de sutură sau, pentru hernii voluminoase, plasă de polipropilenă montată laparoscopic sau printr-o mică incizie.
+                </div>
+            </div>
+        </article>
+
+        <!-- Hernia Femurală -->
+        <article class="hernia-card">
+            <div class="hernia-card-header">
+                <h2>Hernia Femurală</h2>
+                <span class="tag">Plasă tridimensională 3D</span>
+            </div>
+            <div class="hernia-card-body">
+                <h3>Ce este hernia femurală?</h3>
+                <p>Hernia femurală se manifestă ca o umflătură apărută în regiunea superioară a coapsei, chiar sub zona inghinală. Herniile femurale sunt mult mai frecvente la femei decât la bărbați.</p>
+                
+                <h3>De ce necesită atenție specială?</h3>
+                <ul>
+                    <li>Rămân în general de mici dimensiuni</li>
+                    <li>Se complică frecvent cu strangularea conținutului</li>
+                    <li>Risc crescut de necroză intestinală</li>
+                    <li>Se operează cât mai repede posibil</li>
+                </ul>
+
+                <div class="procedure-note">
+                    <strong>⚠️ Important:</strong> Din cauza riscului crescut de complicații severe, hernia femurală se operează cât mai repede posibil prin tehnică laparoscopică.
+                </div>
+            </div>
+        </article>
+
+        <!-- Eventrația -->
+        <article class="hernia-card">
+            <div class="hernia-card-header">
+                <h2>Eventrația</h2>
+                <span class="tag">Plasă bifațetată Ventralight</span>
+            </div>
+            <div class="hernia-card-body">
+                <h3>Ce este eventrația (hernia postincizională)?</h3>
+                <p>Eventrația apare ca o umflătură sub piele în zona unei cicatrici postoperatorii preexistente. Umflătura este mai evidentă când pacientul stă în picioare sau tușește. Eventratiile pot varia de la foarte mici la foarte mari și complexe.</p>
+                
+                <h3>Cauze și evoluție</h3>
+                <ul>
+                    <li>Sutură a țesuturilor în tensiune după intervenția anterioară</li>
+                    <li>Infecție, alimentație deficitară, obezitate sau boli metabolice</li>
+                    <li>Sacul de eventrație crește progresiv în dimensiuni</li>
+                    <li>Poate evolua până la ocluzie intestinală</li>
+                </ul>
+
+                <div class="procedure-note">
+                    <strong>Procedură:</strong> Tratament laparoscopic cu plasă Ventralight fixată cu agrafe speciale sau chirurgie clasică cu procedeul Rives pentru cazuri complexe.
+                </div>
+            </div>
+        </article>
+
+        <!-- Diastazis -->
+        <article class="hernia-card">
+            <div class="hernia-card-header">
+                <h2>Diastazis</h2>
+                <span class="tag">Plasă retromuscular</span>
+            </div>
+            <div class="hernia-card-body">
+                <h3>Ce este diastazisul mușchilor drepți abdominali?</h3>
+                <p>Reprezintă o distanțare a mușchilor drepți abdominali pe linia mediană. Se observă o umflătură de sub stern până sub buric, care dispare când pacientul stă culcat și apare inestetic când se contractă mușchii abdomenului.</p>
+                
+                <h3>Opțiuni de tratament</h3>
+                <ul>
+                    <li>Corecție chirurgicală clasică sau laparoscopică</li>
+                    <li>Poate fi cuplat cu abdominoplastie</li>
+                    <li>Îndepărtarea excesului tegumentar și adipos</li>
+                    <li>Spitalizare scurtă (2-3 zile), recuperare rapidă</li>
+                </ul>
+
+                <div class="procedure-note">
+                    <strong>Procedură:</strong> Readucerea mușchilor drepți abdominali pe linia mediană și întărirea peretelui cu plasă poziționată retromuscular.
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <!-- Advantages Section -->
+    <section class="advantages-section">
+        <div class="advantages-container">
+            <div class="advantages-header">
+                <p class="label">De ce să alegeți</p>
+                <h2>Chirurgia <span>Laparoscopică</span></h2>
+            </div>
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <h3>Recuperare Rapidă</h3>
+                    <p>Reluarea activităților în câteva zile</p>
+                </div>
+                <div class="advantage-card">
+                    <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                    <h3>Minim Invazivă</h3>
+                    <p>Doar 3 incizii mici (5-10mm)</p>
+                </div>
+                <div class="advantage-card">
+                    <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    <h3>Durere Minimă</h3>
+                    <p>Discomfort redus postoperator</p>
+                </div>
+                <div class="advantage-card">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    <h3>Plase Premium</h3>
+                    <p>Materiale de ultimă generație</p>
+                </div>
+                <div class="advantage-card">
+                    <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    <h3>Spitalizare Scurtă</h3>
+                    <p>Externare în 1-2 zile</p>
+                </div>
+                <div class="advantage-card">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+                    <h3>Experiență Vastă</h3>
+                    <p>Peste 25 ani în chirurgie</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Programează o Consultație</h2>
+        <p>Evaluare personalizată și plan de tratament adaptat situației dumneavoastră. Dr. George Jinescu vă oferă toate informațiile necesare pentru o decizie informată.</p>
+        <div class="cta-buttons">
+            <a href="index.html#programare" class="btn btn-primary">Programare Online</a>
+            <a href="tel:+40XXXXXXXXX" class="btn btn-outline">Sună Acum</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">Dr. George <span>Jinescu</span></div>
+        <p>Medic Primar Chirurgie Generală | Doctor în Științe Medicale</p>
+        <p style="margin-top: 1rem;">© 2025 Dr. George Jinescu. Toate drepturile rezervate.</p>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+    </script>
+
+</body>
+</html>
