@@ -5,68 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acasă</title>
     <style>
-        body, html {
-            margin: 0; padding: 0; height: 100%; width: 100%; overflow: hidden;
-            background: url('IMG_6297.jpeg') no-repeat center center fixed;
-            background-size: cover;
-            font-family: 'Arial Black', sans-serif;
-        }
-        nav { background: rgba(45, 52, 70, 0.9); padding: 15px; text-align: center; position: fixed; top: 0; width: 100%; z-index: 1000; }
+        body, html { margin: 0; padding: 0; height: 100%; width: 100%; overflow: hidden; background: url('IMG_6297.jpeg') no-repeat center center fixed; background-size: cover; font-family: 'Arial Black', sans-serif; }
+        nav { background: rgba(0, 0, 0, 0.85); padding: 15px; text-align: center; position: fixed; top: 0; width: 100%; z-index: 1000; }
         nav a { color: white; text-decoration: none; margin: 0 10px; font-weight: bold; }
-
-        .play-button {
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            width: 120px; height: 120px;
-            background-color: #ff0000;
-            color: white;
-            border: 5px solid white;
-            border-radius: 50%;
-            font-size: 20px; font-weight: bold;
-            cursor: pointer;
-            z-index: 20;
-            box-shadow: 0 0 30px rgba(255, 0, 0, 0.8);
-            animation: pulse 1.5s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: translate(-50%, -50%) scale(1); }
-            50% { transform: translate(-50%, -50%) scale(1.1); }
-            100% { transform: translate(-50%, -50%) scale(1); }
-        }
-
-        .wavy-text {
-            position: absolute;
-            bottom: 15%; width: 100%;
-            text-align: center;
-            color: #ff0000;
-            font-size: 2.5rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            text-shadow: 3px 3px 15px black;
-            pointer-events: none;
-            z-index: 5;
-            display: flex; flex-wrap: wrap; justify-content: center;
-        }
-
-        /* Aceasta este linia care oprește ruperea cuvintelor */
+        .play-trigger { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 140px; height: 140px; background-color: #ff0000; color: white; border: 5px solid #ffffff; border-radius: 50%; font-size: 18px; font-weight: 800; cursor: pointer; z-index: 100; box-shadow: 0 0 40px rgba(255, 0, 0, 0.9); animation: heartbeat 1.2s infinite; }
+        @keyframes heartbeat { 0% { transform: translate(-50%, -50%) scale(1); } 50% { transform: translate(-50%, -50%) scale(1.1); } 100% { transform: translate(-50%, -50%) scale(1); } }
+        .wavy-text { position: absolute; bottom: 15%; width: 100%; text-align: center; color: #ff0000; font-size: 2.2rem; font-weight: 900; text-transform: uppercase; text-shadow: 4px 4px 20px #000; pointer-events: none; z-index: 5; display: flex; flex-wrap: wrap; justify-content: center; }
         .word { display: inline-block; white-space: nowrap; margin: 0 10px; }
-
-        .wavy-text span {
-            display: inline-block;
-            animation: wave 2.5s infinite ease-in-out;
-        }
-
-        @keyframes wave {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-30px); }
-        }
-
-        /* Playerul trebuie să aibă o mărime minimă pentru a funcționa pe unele browsere */
-        #youtube-player { position: absolute; bottom: 0; left: 0; width: 1px; height: 1px; opacity: 0.1; }
-
-        @media (max-width: 600px) { .wavy-text { font-size: 1.5rem; } }
+        .wavy-text span { display: inline-block; animation: wave-motion 2.5s infinite ease-in-out; }
+        @keyframes wave-motion { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-30px); } }
+        #audio-zone { position: absolute; top: 0; left: 0; width: 300px; height: 300px; z-index: -10; opacity: 0.01; }
+        @media (max-width: 600px) { .wavy-text { font-size: 1.5rem; bottom: 20%; } .play-trigger { width: 120px; height: 120px; } }
     </style>
 </head>
 <body>
@@ -78,36 +27,26 @@
         <a href="pagina3.html">Pagina 3</a>
         <a href="wtf.html">WTF</a>
     </nav>
-
-    <div class="wavy-text" id="floating-text"></div>
-
-    <button class="play-button" id="btnPlay" onclick="playMusic()">PLAY MUSIC</button>
-
-    <div id="youtube-player"></div>
-
+    <div class="wavy-text" id="target-text"></div>
+    <button class="play-trigger" id="masterBtn" onclick="activate()">ASCULTĂ ACUM</button>
+    <div id="audio-zone"></div>
     <script>
-        const phrase = "I think I’m loosing my mind";
-        const container = document.getElementById('floating-text');
-        
-        phrase.split(' ').forEach((word, wordIdx) => {
-            const wordSpan = document.createElement('span');
-            wordSpan.className = 'word';
-            
-            word.split('').forEach((char, charIdx) => {
-                const letterSpan = document.createElement('span');
-                letterSpan.textContent = char;
-                letterSpan.style.animationDelay = `${(wordIdx * 3 + charIdx) * 0.1}s`;
-                wordSpan.appendChild(letterSpan);
+        const msg = "I think I’m loosing my mind";
+        const box = document.getElementById('target-text');
+        msg.split(' ').forEach((w, i) => {
+            const sWord = document.createElement('span'); sWord.className = 'word';
+            w.split('').forEach((c, j) => {
+                const sLetter = document.createElement('span');
+                sLetter.textContent = c;
+                sLetter.style.animationDelay = `${(i * 3 + j) * 0.1}s`;
+                sWord.appendChild(sLetter);
             });
-            container.appendChild(wordSpan);
+            box.appendChild(sWord);
         });
-
-        function playMusic() {
-            const player = document.getElementById('youtube-player');
-            // Am adăugat link-ul corect de embed cu autoplay forțat
-            player.innerHTML = `<iframe width="100" height="100" src="https://www.youtube.com/embed/LLsvFTeYc0U?autoplay=1&mute=0" frameborder="0" allow="autoplay; encrypted-media"></iframe>`;
-            document.getElementById('btnPlay').style.display = 'none';
+        function activate() {
+            document.getElementById('audio-zone').innerHTML = '<iframe width="300" height="300" src="https://www.youtube.com/embed/LLsvFTeYc0U?autoplay=1&mute=0" frameborder="0" allow="autoplay; encrypted-media"></iframe>';
+            document.getElementById('masterBtn').style.display = 'none';
         }
     </script>
-</body>
+    </body>
 </html>
