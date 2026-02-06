@@ -5,48 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acasă</title>
     <style>
-        body, html { margin: 0; padding: 0; height: 100%; width: 100%; overflow: hidden; background: url('IMG_6297.jpeg') no-repeat center center fixed; background-size: cover; font-family: 'Arial Black', sans-serif; }
-        nav { background: rgba(0, 0, 0, 0.85); padding: 15px; text-align: center; position: fixed; top: 0; width: 100%; z-index: 1000; }
+        body, html {
+            margin: 0; padding: 0; height: 100%; width: 100%; overflow: hidden;
+            background: #000 url('IMG_6297.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Arial Black', sans-serif;
+        }
+        nav { background: rgba(0,0,0,0.8); padding: 15px; text-align: center; position: fixed; top: 0; width: 100%; z-index: 100; }
         nav a { color: white; text-decoration: none; margin: 0 10px; font-weight: bold; }
-        .play-trigger { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 140px; height: 140px; background-color: #ff0000; color: white; border: 5px solid #ffffff; border-radius: 50%; font-size: 18px; font-weight: 800; cursor: pointer; z-index: 100; box-shadow: 0 0 40px rgba(255, 0, 0, 0.9); animation: heartbeat 1.2s infinite; }
-        @keyframes heartbeat { 0% { transform: translate(-50%, -50%) scale(1); } 50% { transform: translate(-50%, -50%) scale(1.1); } 100% { transform: translate(-50%, -50%) scale(1); } }
-        .wavy-text { position: absolute; bottom: 15%; width: 100%; text-align: center; color: #ff0000; font-size: 2.2rem; font-weight: 900; text-transform: uppercase; text-shadow: 4px 4px 20px #000; pointer-events: none; z-index: 5; display: flex; flex-wrap: wrap; justify-content: center; }
-        .word { display: inline-block; white-space: nowrap; margin: 0 10px; }
-        .wavy-text span { display: inline-block; animation: wave-motion 2.5s infinite ease-in-out; }
-        @keyframes wave-motion { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-30px); } }
-        #audio-zone { position: absolute; top: 0; left: 0; width: 300px; height: 300px; z-index: -10; opacity: 0.01; }
-        @media (max-width: 600px) { .wavy-text { font-size: 1.5rem; bottom: 20%; } .play-trigger { width: 120px; height: 120px; } }
+
+        /* Butonul de Play */
+        .buton-muzica {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            padding: 20px 40px; background: #ff0000; color: #fff;
+            border: 3px solid #fff; border-radius: 50px; cursor: pointer;
+            font-size: 18px; font-weight: bold; z-index: 50;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+        }
+
+        /* Textul ondulat - Cuvintele raman intregi */
+        .text-plutitor {
+            position: absolute; bottom: 15%; width: 100%; text-align: center;
+            color: #ff0000; font-size: 2.2rem; text-transform: uppercase;
+            text-shadow: 3px 3px 10px #000; z-index: 10;
+            display: flex; flex-wrap: wrap; justify-content: center;
+        }
+        .cuvant { display: inline-block; white-space: nowrap; margin: 0 10px; }
+        .cuvant span { display: inline-block; animation: wave 2s infinite ease-in-out; }
+        @keyframes wave { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+
+        #player-hidden { position: absolute; visibility: hidden; }
+        @media (max-width: 600px) { .text-plutitor { font-size: 1.4rem; } }
     </style>
 </head>
 <body>
-    <nav>
-        <a href="index.html">Acasă</a>
-        <a href="hernia.html">Hernie</a>
-        <a href="laser.html">Laser</a>
-        <a href="link.html">Link</a>
-        <a href="pagina3.html">Pagina 3</a>
-        <a href="wtf.html">WTF</a>
-    </nav>
-    <div class="wavy-text" id="target-text"></div>
-    <button class="play-trigger" id="masterBtn" onclick="activate()">ASCULTĂ ACUM</button>
-    <div id="audio-zone"></div>
-    <script>
-        const msg = "I think I’m loosing my mind";
-        const box = document.getElementById('target-text');
-        msg.split(' ').forEach((w, i) => {
-            const sWord = document.createElement('span'); sWord.className = 'word';
-            w.split('').forEach((c, j) => {
-                const sLetter = document.createElement('span');
-                sLetter.textContent = c;
-                sLetter.style.animationDelay = `${(i * 3 + j) * 0.1}s`;
-                sWord.appendChild(sLetter);
-            });
-            box.appendChild(sWord);
+
+<nav>
+    <a href="index.html">Acasă</a>
+    <a href="hernia.html">Hernie</a>
+    <a href="laser.html">Laser</a>
+    <a href="link.html">Link</a>
+    <a href="pagina3.html">Pagina 3</a>
+    <a href="wtf.html">WTF</a>
+</nav>
+
+<div class="text-plutitor" id="container-text"></div>
+
+<button class="buton-muzica" id="btn" onclick="play()">PORNEȘTE ACUM</button>
+
+<div id="player-hidden"></div>
+
+<script>
+    // Generare text wavy
+    const txt = "I think I’m loosing my mind";
+    const div = document.getElementById('container-text');
+
+    txt.split(' ').forEach((w, wi) => {
+        const sW = document.createElement('span');
+        sW.className = 'cuvant';
+        w.split('').forEach((c, ci) => {
+            const sL = document.createElement('span');
+            sL.textContent = c;
+            sL.style.animationDelay = (wi * 0.4 + ci * 0.1) + 's';
+            sW.appendChild(sL);
         });
-        function activate() {
-            document.getElementById('audio-zone').innerHTML = '<iframe width="300" height="300" src="https://www.youtube.com/embed/LLsvFTeYc0U?autoplay=1&mute=0" frameborder="0" allow="autoplay; encrypted-media"></iframe>';
-            document.getElementById('masterBtn').style.display = 'none';
-        }
-    </script>
-    </body>
+        div.appendChild(sW);
+    });
+
+    // Functie Play
+    function play() {
+        document.getElementById('player-hidden').innerHTML = '<iframe src="https://www.youtube.com/embed/LLsvFTeYc0U?autoplay=1" allow="autoplay"></iframe>';
+        document.getElementById('btn').style.display = 'none';
+    }
+</script>
+</body>
 </html>
