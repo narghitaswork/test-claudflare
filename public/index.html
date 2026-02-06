@@ -14,34 +14,31 @@
         nav { background: rgba(45, 52, 70, 0.9); padding: 15px; text-align: center; position: fixed; top: 0; width: 100%; z-index: 1000; }
         nav a { color: white; text-decoration: none; margin: 0 10px; font-weight: bold; }
 
-        /* BUTON VIZIBIL */
         .play-button {
             position: absolute;
             top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            width: 100px; height: 100px;
+            width: 120px; height: 120px;
             background-color: #ff0000;
             color: white;
-            border: 4px solid white;
+            border: 5px solid white;
             border-radius: 50%;
-            font-weight: bold;
+            font-size: 20px; font-weight: bold;
             cursor: pointer;
-            z-index: 10;
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
-            display: flex; align-items: center; justify-content: center;
+            z-index: 20;
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.8);
             animation: pulse 1.5s infinite;
         }
 
         @keyframes pulse {
             0% { transform: translate(-50%, -50%) scale(1); }
-            50% { transform: translate(-50%, -50%) scale(1.1); box-shadow: 0 0 30px rgba(255, 0, 0, 1); }
+            50% { transform: translate(-50%, -50%) scale(1.1); }
             100% { transform: translate(-50%, -50%) scale(1); }
         }
 
-        /* TEXT CARE NU SE RUPE */
         .wavy-text {
             position: absolute;
-            bottom: 10%; width: 90%; left: 5%;
+            bottom: 15%; width: 100%;
             text-align: center;
             color: #ff0000;
             font-size: 2.5rem;
@@ -53,6 +50,7 @@
             display: flex; flex-wrap: wrap; justify-content: center;
         }
 
+        /* Aceasta este linia care oprește ruperea cuvintelor */
         .word { display: inline-block; white-space: nowrap; margin: 0 10px; }
 
         .wavy-text span {
@@ -65,7 +63,8 @@
             50% { transform: translateY(-30px); }
         }
 
-        #youtube-player { display: none; }
+        /* Playerul trebuie să aibă o mărime minimă pentru a funcționa pe unele browsere */
+        #youtube-player { position: absolute; bottom: 0; left: 0; width: 1px; height: 1px; opacity: 0.1; }
 
         @media (max-width: 600px) { .wavy-text { font-size: 1.5rem; } }
     </style>
@@ -82,7 +81,7 @@
 
     <div class="wavy-text" id="floating-text"></div>
 
-    <button class="play-button" onclick="playMusic()">PLAY</button>
+    <button class="play-button" id="btnPlay" onclick="playMusic()">PLAY MUSIC</button>
 
     <div id="youtube-player"></div>
 
@@ -90,7 +89,6 @@
         const phrase = "I think I’m loosing my mind";
         const container = document.getElementById('floating-text');
         
-        // Generăm cuvinte întregi pentru a preveni ruperea lor
         phrase.split(' ').forEach((word, wordIdx) => {
             const wordSpan = document.createElement('span');
             wordSpan.className = 'word';
@@ -98,17 +96,17 @@
             word.split('').forEach((char, charIdx) => {
                 const letterSpan = document.createElement('span');
                 letterSpan.textContent = char;
-                letterSpan.style.animationDelay = `${(wordIdx * 5 + charIdx) * 0.1}s`;
+                letterSpan.style.animationDelay = `${(wordIdx * 3 + charIdx) * 0.1}s`;
                 wordSpan.appendChild(letterSpan);
             });
-            
             container.appendChild(wordSpan);
         });
 
         function playMusic() {
             const player = document.getElementById('youtube-player');
-            player.innerHTML = `<iframe width="0" height="0" src="https://www.youtube.com/embed/LLsvFTeYc0U?autoplay=1&mute=0" frameborder="0" allow="autoplay"></iframe>`;
-            document.querySelector('.play-button').style.display = 'none'; // Dispare după ce apeși
+            // Am adăugat link-ul corect de embed cu autoplay forțat
+            player.innerHTML = `<iframe width="100" height="100" src="https://www.youtube.com/embed/LLsvFTeYc0U?autoplay=1&mute=0" frameborder="0" allow="autoplay; encrypted-media"></iframe>`;
+            document.getElementById('btnPlay').style.display = 'none';
         }
     </script>
 </body>
