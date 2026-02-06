@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Press for Illusion</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            /* AICI S-A FĂCUT MODIFICAREA: */
+            background: url('IMG_6297.png') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Arial Black', Gadget, sans-serif;
+        }
+
+        /* Meniul de navigare (pentru a putea ieși din pagină) */
+        nav {
+            background-color: rgba(45, 52, 70, 0.8);
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        nav a { color: white; text-decoration: none; margin: 0 10px; font-weight: bold; font-size: 14px; }
+
+        /* Butonul rotund transparent peste centrul imaginii (sonerie) */
+        .doorbell-trigger {
+            position: absolute;
+            top: 50%; /* Centrat vertical */
+            left: 50%; /* Centrat orizontal */
+            transform: translate(-50%, -50%); /* Ajustare fină pentru centru exact */
+            width: 90px; /* Lățimea zonei pe care se poate apăsa */
+            height: 90px; /* Înălțimea zonei pe care se poate apăsa */
+            background: transparent; /* Este invizibil */
+            border-radius: 50%; /* Este rotund */
+            cursor: pointer; /* Cursorul devine mânuță */
+            z-index: 10; /* Stă deasupra tuturor elementelor */
+        }
+        /* Opțional: o bordură roșie fină când treci cu mouse-ul, ca să vezi unde e zona */
+        .doorbell-trigger:hover { border: 2px solid rgba(255, 0, 0, 0.5); }
+
+        /* Stilul pentru textul care plutește în valuri */
+        .wavy-text {
+            position: absolute;
+            bottom: 15%; /* Poziționat mai jos pe ecran */
+            width: 100%;
+            text-align: center;
+            color: #ff0000; /* Roșu aprins */
+            font-size: 3.5rem; /* Text foarte mare */
+            font-weight: 900;
+            text-transform: uppercase;
+            text-shadow: 3px 3px 15px black; /* Umbră puternică pentru contrast */
+            pointer-events: none; /* Textul nu blochează click-urile */
+            z-index: 5;
+        }
+
+        /* Animația fiecărei litere */
+        .wavy-text span {
+            display: inline-block;
+            animation: wave-animation 2.5s infinite ease-in-out;
+        }
+
+        /* Definirea mișcării de val */
+        @keyframes wave-animation {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-40px); } /* Cât de sus se ridică litera */
+        }
+
+        /* Ascunde playerul YouTube */
+        #youtube-player { display: none; }
+
+        /* Ajustări pentru telefon mobil */
+        @media (max-width: 600px) { 
+            .wavy-text { font-size: 1.8rem; bottom: 20%; } 
+            .doorbell-trigger { width: 70px; height: 70px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Acasă</a>
+        <a href="wtf.html">WTF</a>
+    </nav>
+
+    <div class="wavy-text" id="floating-text">
+        </div>
+
+    <div class="doorbell-trigger" onclick="playIllusion()"></div>
+
+    <div id="youtube-player"></div>
+
+    <script>
+        // 1. Generarea textului animat literă cu literă
+        const text = "I think I’m loosing my mind";
+        const container = document.getElementById('floating-text');
+        
+        text.split('').forEach((char, i) => {
+            const span = document.createElement('span');
+            // Dacă e spațiu gol, folosim un cod special, altfel folosim litera
+            span.textContent = char === ' ' ? '\u00A0' : char;
+            // Adăugăm o întârziere (delay) progresivă pentru fiecare literă
+            span.style.animationDelay = `${i * 0.15}s`;
+            container.appendChild(span);
+        });
+
+        // 2. Funcția care pornește melodia la click
+        function playIllusion() {
+            // Găsim elementul player
+            const player = document.getElementById('youtube-player');
+            // Introducem videoclipul cu pornire automată (autoplay=1)
+            // Am folosit link-ul specificat de tine: https://youtu.be/LLsvFTeYc0U
+            player.innerHTML = `<iframe width="0" height="0" src="https://www.youtube.com/embed/LLsvFTeYc0U?autoplay=1" frameborder="0" allow="autoplay; encrypted-media"></iframe>`;
+        }
+    </script>
+</body>
+</html>
