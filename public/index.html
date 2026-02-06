@@ -3,45 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site-ul Meu Profesional</title>
+    <title>Iluzie - Pagina Principală</title>
     <style>
-        /* Stiluri pentru aspect modern */
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f0f2f5; color: #333; }
-        
-        /* Meniul de navigare */
-        nav { background-color: #2d3436; padding: 15px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-        nav a { color: white; text-decoration: none; margin: 0 20px; font-weight: bold; transition: 0.3s; }
-        nav a:hover { color: #0984e3; }
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            background: url('IMG_6297.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Arial Black', Gadget, sans-serif;
+        }
 
-        /* Continutul paginii */
-        .container { max-width: 800px; margin: 50px auto; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; }
-        h1 { color: #2d3436; }
-        p { line-height: 1.6; font-size: 1.1rem; color: #636e72; }
-        
-        .footer { margin-top: 30px; font-size: 0.8rem; color: #b2bec3; }
+        /* Meniu Navigare */
+        nav {
+            background-color: rgba(45, 52, 70, 0.8);
+            padding: 15px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        nav a { 
+            color: white; 
+            text-decoration: none; 
+            margin: 0 10px; 
+            font-weight: bold; 
+            font-size: 14px;
+            transition: 0.3s;
+        }
+        nav a:hover { color: #ff0000; }
+
+        /* Butonul rotund invizibil peste sonerie */
+        .doorbell-trigger {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            background: transparent;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+        }
+        .doorbell-trigger:hover { border: 2px solid rgba(255, 0, 0, 0.5); }
+
+        /* Textul care plutește în valuri */
+        .wavy-text {
+            position: absolute;
+            bottom: 15%;
+            width: 100%;
+            text-align: center;
+            color: #ff0000; /* Roșu aprins */
+            font-size: 4rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            text-shadow: 3px 3px 15px black;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .wavy-text span {
+            display: inline-block;
+            animation: wave-animation 2.5s infinite ease-in-out;
+        }
+
+        @keyframes wave-animation {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-40px); }
+        }
+
+        /* Ascunde playerul YouTube */
+        #youtube-player { display: none; }
+
+        @media (max-width: 600px) { 
+            .wavy-text { font-size: 1.8rem; bottom: 20%; } 
+        }
     </style>
 </head>
 <body>
-<nav style="background-color: #2d3436; padding: 15px; text-align: center; position: sticky; top: 0; z-index: 1000;">
-    <a href="index.html" style="color: white; text-decoration: none; margin: 0 10px; font-weight: bold;">Acasă</a>
-    <a href="hernia.html" style="color: white; text-decoration: none; margin: 0 10px; font-weight: bold;">Hernie</a>
-    <a href="laser.html" style="color: white; text-decoration: none; margin: 0 10px; font-weight: bold;">Laser</a>
-    <a href="link.html" style="color: white; text-decoration: none; margin: 0 10px; font-weight: bold;">Link</a>
-    <a href="pagina3.html" style="color: white; text-decoration: none; margin: 0 10px; font-weight: bold;">Pagina 3</a>
-    <a href="wtf.html" style="color: white; text-decoration: none; margin: 0 10px; font-weight: bold;">WTF</a>
-    <a href="illusion.html" style="color: #ff0000; text-decoration: none; margin: 0 10px; font-weight: bold; border: 1px solid #ff0000; padding: 5px 10px; border-radius: 5px;">ILUZIE</a>
-</nav>
 
-    <div class="container">
-        <h1>Bine ai venit pe site-ul meu!</h1>
-        <p>Aceasta este pagina principală. Folosește meniul de mai sus pentru a naviga între secțiuni.</p>
-        <hr>
-        <p>Aici poți adăuga orice informație dorești să fie vizibilă prima dată.</p>
-    </div>
+    <nav>
+        <a href="index.html">Acasă</a>
+        <a href="hernia.html">Hernie</a>
+        <a href="laser.html">Laser</a>
+        <a href="link.html">Link</a>
+        <a href="pagina3.html">Pagina 3</a>
+        <a href="wtf.html">WTF</a>
+        <a href="index.html" style="color: #ff0000; border: 1px solid #ff0000; padding: 2px 5px;">ILUZIE</a>
+    </nav>
 
-    <div class="footer">
-        &copy; 2026 Site-ul Meu - Creat cu Cloudflare Pages
-    </div>
+    <div class="wavy-text" id="floating-text"></div>
 
+    <div class="doorbell-trigger" onclick="playIllusion()"></div>
+
+    <div id="youtube-player"></div>
+
+    <script>
+        // Generare text animat
+        const text = "I think I’m loosing my mind";
+        const container = document.getElementById('floating-text');
+        
+        text.split('').forEach((char, i) => {
+            const span = document.createElement('span');
+            span.textContent = char === ' ' ? '\u00A0' : char;
+            span.style.animationDelay = `${i * 0.15}s`;
+            container.appendChild(span);
+        });
+
+        // Pornire muzică
+        function playIllusion() {
+            const player = document.getElementById('youtube-player');
+            player.innerHTML = `<iframe width="0" height="0" src="https://www.youtube.com/embed/LLsvFTeYc0U?autoplay=1" frameborder="0" allow="autoplay"></iframe>`;
+        }
+    </script>
 </body>
 </html>
